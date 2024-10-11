@@ -105,7 +105,7 @@ export default function Home() {
           value={todo}
           type="Text"
           placeholder="Writ it down!✍🏻"
-          className="mt-4 mb-2 font-bold h-14 w-[375px] sm:w-[800px]"
+          className="mt-4 mb-2 font-bold h-14 w-[375px] sm:w-[900px]"
         />
         <Button onClick={handleAdd}>Add</Button>
       </div>
@@ -124,7 +124,7 @@ export default function Home() {
         <h2 className="text-base sm:text-4xl">Your To-Do&apos;s: 📝</h2>
       </div>
       {todos.length === 0 && (
-        <div className="mt-28 text-5xl text-center sm:max-w-[410px] sm:text-xs sm:antialiased">
+        <div className="mt-28  text-center sm:max-w-[410px] text-sm sm:text-3xl antialiased">
           {" "}
           You haven&apos;t made any note!🤷
         </div>
