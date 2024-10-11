@@ -96,73 +96,75 @@ export default function Home() {
   //This toggles finished and unfinished notes.
 
   return (
-    <div className="m-auto max-h-screen w-2/3 justify-center ">
+    <div className=" m-auto w-full sm:w-2/3 justify-center  ">
       <Navbar />
-      <h1 className="mt-9  mb-9 text-4xl">Add Here: 👇🏻</h1>
+      <h1 className="mt-9  mb-9 sm:text-4xl text-yellow-200">Add Here: 👇🏻</h1>
       <div className="h-12 mt-9 mb-9 inline ">
         <Input
           onChange={handleChange}
           value={todo}
           type="Text"
           placeholder="Writ it down!✍🏻"
-          className="mt-4 mb-2 font-bold h-14"
+          className="mt-4 mb-2 font-bold h-14 w-[375px] "
         />
         <Button onClick={handleAdd}>Add</Button>
       </div>
 
-      <div className="mt-6">
+      <div className="text-yellow-200">
         <input
           onChange={togglefinished}
           type="checkbox"
           checked={showFinished}
-          className=" min-h-8 min-w-8  accent-black cursor-pointer mr-5"
+          className="inline-block h-8 w-8 translate-y-3 accent-yellow-400 rounded-full cursor-pointer mr-5 sm:text-3xl text-xs "
         />{" "}
         Finished Tasks
       </div>
 
       <div className="flex my-6 ">
-        <h2 className="text-4xl">Your To-Do's: 📝</h2>
+        <h2 className="text-base sm:text-4xl">Your To-Do&apos;s: 📝</h2>
       </div>
       {todos.length === 0 && (
-        <div className="mt-28 text-5xl text-center ">
+        <div className="mt-28 text-5xl text-center sm:max-w-[410px] sm:text-xs sm:antialiased">
           {" "}
-          You haven't made any note!🤷
+          You haven&apos;t made any note!🤷
         </div>
       )}
       {todos.map((item) => {
         return (
           (showFinished || !item.isCompleted) && (
             <div className="flex " key={item.id}>
-              <div className="flex m-2 p-3 my-2 w-4/5 gap-6 text-justify ">
+              <div className="flex sm:m-2 p-3 w-4/5 gap-6 text-justify ">
                 <input
                   name={item.id}
                   onChange={handleCheckbox}
                   value={item.isCompleted}
                   type="checkbox"
                   id=""
-                  className=" min-h-8 min-w-8  accent-black cursor-pointer "
+                  className="sm:h-8 sm:w-8  accent-yellow-400 cursor-pointer "
                 />
-                <div className={item.isCompleted ? "line-through" : ""}>
+                <div className={item.isCompleted ? "line-through" : "w-[375px] sm:w-screen text-yellow-200 hyphens-auto"}>
                   {item.todo}
                 </div>
               </div>
 
-              <div className="flex gap-5 mx-5 ">
+              <div className="flex  sm:gap-5 translate-y-2">
                 <Button
                   onClick={(e) => {
                     handleEdit(e, item.id);
                   }}
-                  className=""
+                  className="h-1 w-1 sm:h-16 sm:w-16 text-3xl sm:text-3xl"
+                  variant="ghost"
                 >
-                  edits 🔪
+                  🔪
                 </Button>
                 <Button
                   onClick={(e) => {
                     handleDelete(e, item.id);
                   }}
-                  variant="destructive"
+                  variant="ghost"
+                  className="h-1 w-1 sm:h-16 sm:w-16 text-3xl sm:text-3xl"
                 >
-                  Delete 🗑️
+                  🗑️
                 </Button>
               </div>
             </div>
