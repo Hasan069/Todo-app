@@ -105,7 +105,7 @@ export default function Home() {
           value={todo}
           type="Text"
           placeholder="Writ it down!✍🏻"
-          className="mt-4 mb-2 font-bold h-14 w-[375px] "
+          className="mt-4 mb-2 font-bold h-14 w-[375px] sm:w-[800px]"
         />
         <Button onClick={handleAdd}>Add</Button>
       </div>
